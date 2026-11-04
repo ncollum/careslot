@@ -9,7 +9,7 @@ You need Python 3.14 and Git.
 1. Clone the repo and go into the folder.
 
    ```
-   git clone <repo-url>
+   git clone https://github.com/Tashdidtrdb/CareSlot.git
    cd CareSlot
    ```
 
