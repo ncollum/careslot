@@ -1,0 +1,307 @@
+[
+  {
+    "model": "doctors.clinic",
+    "pk": 1,
+    "fields": {
+      "name": "Riverside Family Clinic",
+      "address": "2100 Riverside Dr W, Windsor, ON N9B 1A1",
+      "phone": "5195550142",
+      "opening_hours": "Mon - Fri 8:00 AM - 6:00 PM\nSaturday 9:00 AM - 12:00 PM\nSunday Closed"
+    }
+  },
+  {
+    "model": "doctors.clinic",
+    "pk": 2,
+    "fields": {
+      "name": "Downtown Windsor Health Centre",
+      "address": "450 Ouellette Ave, Windsor, ON N9A 1B2",
+      "phone": "5195550188",
+      "opening_hours": "Mon - Fri 8:30 AM - 5:00 PM\nSaturday 9:00 AM - 1:00 PM\nSunday Closed"
+    }
+  },
+  {
+    "model": "doctors.clinic",
+    "pk": 3,
+    "fields": {
+      "name": "Lakeshore Medical Group",
+      "address": "3800 Tecumseh Rd E, Windsor, ON N8W 1H8",
+      "phone": "5195550126",
+      "opening_hours": "Mon - Fri 9:00 AM - 5:30 PM\nSaturday and Sunday Closed"
+    }
+  },
+  {
+    "model": "doctors.specialty",
+    "pk": 1,
+    "fields": {
+      "name": "Family Medicine",
+      "icon": "house-heart",
+      "keywords": "checkup, cold, flu, fever, cough, sore throat, headache, vaccine, blood pressure"
+    }
+  },
+  {
+    "model": "doctors.specialty",
+    "pk": 2,
+    "fields": {
+      "name": "Dermatology",
+      "icon": "bandaid",
+      "keywords": "rash, acne, eczema, mole check, hair loss, itchy skin, psoriasis"
+    }
+  },
+  {
+    "model": "doctors.specialty",
+    "pk": 3,
+    "fields": {
+      "name": "Pediatrics",
+      "icon": "emoji-smile",
+      "keywords": "child checkup, baby, ear infection, child fever, growth, vaccine"
+    }
+  },
+  {
+    "model": "doctors.specialty",
+    "pk": 4,
+    "fields": {
+      "name": "Cardiology",
+      "icon": "heart-pulse",
+      "keywords": "chest pain, heart, high blood pressure, palpitations, cholesterol, shortness of breath"
+    }
+  },
+  {
+    "model": "doctors.specialty",
+    "pk": 5,
+    "fields": {
+      "name": "Orthopedics",
+      "icon": "person-walking",
+      "keywords": "back pain, knee pain, joint pain, sports injury, fracture, shoulder pain"
+    }
+  },
+  {
+    "model": "doctors.specialty",
+    "pk": 6,
+    "fields": {
+      "name": "Mental Health",
+      "icon": "chat-heart",
+      "keywords": "anxiety, depression, stress, sleep problems, panic attacks, burnout"
+    }
+  },
+  {
+    "model": "doctors.language",
+    "pk": 1,
+    "fields": {
+      "name": "Arabic"
+    }
+  },
+  {
+    "model": "doctors.language",
+    "pk": 2,
+    "fields": {
+      "name": "English"
+    }
+  },
+  {
+    "model": "doctors.language",
+    "pk": 3,
+    "fields": {
+      "name": "French"
+    }
+  },
+  {
+    "model": "doctors.language",
+    "pk": 4,
+    "fields": {
+      "name": "Hindi"
+    }
+  },
+  {
+    "model": "doctors.language",
+    "pk": 5,
+    "fields": {
+      "name": "Mandarin"
+    }
+  },
+  {
+    "model": "doctors.language",
+    "pk": 6,
+    "fields": {
+      "name": "Spanish"
+    }
+  },
+  {
+    "model": "doctors.doctor",
+    "pk": 1,
+    "fields": {
+      "name": "Amara Okafor",
+      "specialty": 1,
+      "clinic": 1,
+      "languages": [
+        2,
+        3
+      ],
+      "bio": "Dr. Okafor is a family doctor with 10 years of experience. She sees patients of all ages for checkups, colds and long-term care, and likes to take time to explain each step.",
+      "photo": ""
+    }
+  },
+  {
+    "model": "doctors.doctor",
+    "pk": 2,
+    "fields": {
+      "name": "Daniel Chen",
+      "specialty": 2,
+      "clinic": 2,
+      "languages": [
+        2,
+        5
+      ],
+      "bio": "Dr. Chen is a dermatologist with 12 years of experience treating adults and teens. He focuses on eczema, acne and skin checks, and keeps treatment plans simple.",
+      "photo": ""
+    }
+  },
+  {
+    "model": "doctors.doctor",
+    "pk": 3,
+    "fields": {
+      "name": "Sofia Martinez",
+      "specialty": 3,
+      "clinic": 1,
+      "languages": [
+        2,
+        6
+      ],
+      "bio": "Dr. Martinez is a pediatrician who cares for babies, children and teens. She does routine checkups, vaccines and visits for common childhood illnesses.",
+      "photo": ""
+    }
+  },
+  {
+    "model": "doctors.doctor",
+    "pk": 4,
+    "fields": {
+      "name": "Leila Haddad",
+      "specialty": 6,
+      "clinic": 3,
+      "languages": [
+        1,
+        2,
+        3
+      ],
+      "bio": "Dr. Haddad works with adults dealing with anxiety, stress and low mood. Her visits are calm and private, and she helps patients build a plan that fits their life.",
+      "photo": ""
+    }
+  },
+  {
+    "model": "doctors.doctor",
+    "pk": 5,
+    "fields": {
+      "name": "Raj Patel",
+      "specialty": 4,
+      "clinic": 3,
+      "languages": [
+        2,
+        4
+      ],
+      "bio": "Dr. Patel is a cardiologist with 15 years of experience. He sees patients for chest pain, high blood pressure and heart checkups.",
+      "photo": ""
+    }
+  },
+  {
+    "model": "doctors.doctor",
+    "pk": 6,
+    "fields": {
+      "name": "Marcus Brown",
+      "specialty": 5,
+      "clinic": 2,
+      "languages": [
+        2
+      ],
+      "bio": "Dr. Brown treats joint, bone and muscle problems. Many of his patients come in with sports injuries, back pain or knee pain.",
+      "photo": ""
+    }
+  },
+  {
+    "model": "doctors.doctor",
+    "pk": 7,
+    "fields": {
+      "name": "Emily Tremblay",
+      "specialty": 1,
+      "clinic": 3,
+      "languages": [
+        2,
+        3
+      ],
+      "bio": "Dr. Tremblay is a family doctor who sees patients for yearly checkups, minor illnesses and ongoing conditions like diabetes and asthma.",
+      "photo": ""
+    }
+  },
+  {
+    "model": "doctors.doctor",
+    "pk": 8,
+    "fields": {
+      "name": "Priya Sharma",
+      "specialty": 2,
+      "clinic": 3,
+      "languages": [
+        2,
+        4
+      ],
+      "bio": "Dr. Sharma is a dermatologist who treats rashes, acne and psoriasis. She also does mole checks and gives advice on daily skin care.",
+      "photo": ""
+    }
+  },
+  {
+    "model": "doctors.doctor",
+    "pk": 9,
+    "fields": {
+      "name": "Omar Khalil",
+      "specialty": 3,
+      "clinic": 2,
+      "languages": [
+        1,
+        2
+      ],
+      "bio": "Dr. Khalil is a pediatrician with 8 years of experience. He sees children for ear infections, fevers and growth checkups.",
+      "photo": ""
+    }
+  },
+  {
+    "model": "doctors.doctor",
+    "pk": 10,
+    "fields": {
+      "name": "Grace Liu",
+      "specialty": 4,
+      "clinic": 2,
+      "languages": [
+        2,
+        5
+      ],
+      "bio": "Dr. Liu is a cardiologist who helps patients manage cholesterol, palpitations and high blood pressure.",
+      "photo": ""
+    }
+  },
+  {
+    "model": "doctors.doctor",
+    "pk": 11,
+    "fields": {
+      "name": "Carlos Rivera",
+      "specialty": 5,
+      "clinic": 1,
+      "languages": [
+        2,
+        6
+      ],
+      "bio": "Dr. Rivera treats back, shoulder and knee pain. He works with patients on recovery plans after injuries and fractures.",
+      "photo": ""
+    }
+  },
+  {
+    "model": "doctors.doctor",
+    "pk": 12,
+    "fields": {
+      "name": "Hannah Wilson",
+      "specialty": 6,
+      "clinic": 1,
+      "languages": [
+        2
+      ],
+      "bio": "Dr. Wilson supports patients with stress, sleep problems and burnout. She offers short-term counselling and follow-up visits.",
+      "photo": ""
+    }
+  }
+]
