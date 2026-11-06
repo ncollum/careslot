@@ -1,0 +1,68 @@
+[
+  {
+    "model": "articles.healtharticle",
+    "pk": 1,
+    "fields": {
+      "title": "How to avoid catching a cold this winter",
+      "category": "Cold and flu",
+      "summary": "Simple daily habits that lower your chance of catching a cold.",
+      "content": "Wash your hands often with soap and water, and try not to touch your face. Get enough sleep and drink water through the day. If someone near you is sick, keep some distance when you can. If you do catch a cold, rest at home and drink warm fluids.",
+      "published_date": "2026-10-12"
+    }
+  },
+  {
+    "model": "articles.healtharticle",
+    "pk": 2,
+    "fields": {
+      "title": "Five cheap foods that are good for your heart",
+      "category": "Healthy eating",
+      "summary": "Good food for your heart does not have to cost a lot.",
+      "content": "Oats, beans, lentils, canned tuna and frozen vegetables are cheap and easy to find. They give you fibre and protein without much salt or fat. Try to eat less fried food and fewer sugary drinks. Small changes to what you eat each week can help your heart over time.",
+      "published_date": "2026-10-19"
+    }
+  },
+  {
+    "model": "articles.healtharticle",
+    "pk": 3,
+    "fields": {
+      "title": "Walking 30 minutes a day is enough to start",
+      "category": "Exercise",
+      "summary": "You do not need a gym to move more.",
+      "content": "A brisk walk for 30 minutes a day is a good start for most adults. You can split it into three walks of 10 minutes if that fits your day better. Walking helps your heart, your mood and your sleep. Wear shoes that fit well and start slow if you have not walked much lately.",
+      "published_date": "2026-10-26"
+    }
+  },
+  {
+    "model": "articles.healtharticle",
+    "pk": 4,
+    "fields": {
+      "title": "Why sleep matters more than you think",
+      "category": "Sleep",
+      "summary": "Poor sleep affects your mood, your memory and your health.",
+      "content": "Most adults need 7 to 9 hours of sleep each night. Try to go to bed and wake up at the same time every day. Keep your phone out of reach for the last half hour before bed. If you often feel tired during the day, talk to your doctor about it.",
+      "published_date": "2026-11-02"
+    }
+  },
+  {
+    "model": "articles.healtharticle",
+    "pk": 5,
+    "fields": {
+      "title": "Feeling stressed? Try these three small steps",
+      "category": "Mental health",
+      "summary": "Three simple habits that can help on a hard day.",
+      "content": "First, slow down and take a few deep breaths. Second, write down the one thing that worries you most and one small step you can take about it. Third, tell someone you trust how you feel. If stress lasts for weeks and starts to affect your sleep or work, book a visit with your doctor.",
+      "published_date": "2026-11-03"
+    }
+  },
+  {
+    "model": "articles.healtharticle",
+    "pk": 6,
+    "fields": {
+      "title": "When should a child see a doctor for a fever?",
+      "category": "Children",
+      "summary": "Most fevers are mild, but some signs mean you should call a doctor.",
+      "content": "A fever is the body fighting an infection, and it often goes away on its own in a few days. Give your child fluids and let them rest. Call a doctor if the fever lasts more than three days, if your child is younger than three months, or if they have trouble breathing. If you are not sure, it is always fine to call and ask.",
+      "published_date": "2026-11-04"
+    }
+  }
+]
