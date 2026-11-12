@@ -50,3 +50,7 @@ class Doctor(models.Model):
 
   def __str__(self):
     return f'Dr. {self.name}'
+
+  @property
+  def initials(self):
+    return ''.join(word[0] for word in self.name.split())[:2]
