@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}Find a doctor{% endblock %}
+
+{% block page_header %}
+  <header class="cs-page-header">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'core:home' %}">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Find a doctor</li>
+        </ol>
+      </nav>
+      <h1 class="h3 mb-1">Find a doctor</h1>
+      <p class="text-body-secondary mb-0">Search by name or symptom and narrow down by specialty, clinic or language.</p>
+    </div>
+  </header>
+{% endblock %}
+
+{% block content %}
+  <div class="cs-layout-sidebar">
+    <aside class="cs-sticky-lg">
+      <button class="btn btn-outline-primary w-100 d-lg-none mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#filters" aria-expanded="false" aria-controls="filters">
+        <i class="bi bi-funnel me-1" aria-hidden="true"></i>Filters
+      </button>
+      <div class="collapse d-lg-block" id="filters">
+        <form class="card" method="get" action="{% url 'doctors:doctor_list' %}" role="search">
+          <div class="card-body d-flex flex-column gap-3">
+            <h2 class="h6 mb-0">Filter doctors</h2>
+            {% include "includes/_field.html" with field=search_form.q %}
+            {% for field in filter_form %}
+              {% include "includes/_field.html" %}
+            {% endfor %}
+            <div class="d-flex flex-column gap-2 pt-1">
+              <button class="btn btn-primary" type="submit">Apply filters</button>
+              <a class="btn btn-link btn-sm" href="{% url 'doctors:doctor_list' %}">Clear all</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </aside>
+
+    <section aria-labelledby="results-title">
+      <h2 class="h6 mb-3" id="results-title">{{ paginator.count }} doctor{{ paginator.count|pluralize }} found</h2>
+
+      {% if doctor_list %}
+        <div class="cs-grid-cards">
+          {% for doctor in doctor_list %}
+            <article class="card h-100">
+              <div class="card-body d-flex flex-column gap-3">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="cs-avatar cs-avatar-lg">
+                    {% if doctor.photo %}
+                      <img src="{{ doctor.photo.url }}" alt="">
+                    {% else %}
+                      {{ doctor.initials }}
+                    {% endif %}
+                  </span>
+                  <div class="cs-min-w-0">
+                    <h3 class="h6 mb-1">{{ doctor }}</h3>
+                    <div class="small text-body-secondary">{{ doctor.specialty }}</div>
+                  </div>
+                </div>
+                <ul class="list-unstyled small text-body-secondary d-flex flex-column gap-1 mb-0">
+                  <li><i class="bi bi-hospital me-2" aria-hidden="true"></i>{{ doctor.clinic }}</li>
+                  <li><i class="bi bi-translate me-2" aria-hidden="true"></i>{{ doctor.languages.all|join:", " }}</li>
+                </ul>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+
+        {% if is_paginated %}
+          <nav class="mt-5" aria-label="Doctor results pages">
+            <ul class="pagination justify-content-center mb-0">
+              {% if page_obj.has_previous %}
+                <li class="page-item"><a class="page-link" href="?{% if query_string %}{{ query_string }}&{% endif %}page={{ page_obj.previous_page_number }}">Previous</a></li>
+              {% else %}
+                <li class="page-item disabled"><span class="page-link">Previous</span></li>
+              {% endif %}
+              {% for number in paginator.page_range %}
+                {% if number == page_obj.number %}
+                  <li class="page-item active" aria-current="page"><span class="page-link">{{ number }}</span></li>
+                {% else %}
+                  <li class="page-item"><a class="page-link" href="?{% if query_string %}{{ query_string }}&{% endif %}page={{ number }}">{{ number }}</a></li>
+                {% endif %}
+              {% endfor %}
+              {% if page_obj.has_next %}
+                <li class="page-item"><a class="page-link" href="?{% if query_string %}{{ query_string }}&{% endif %}page={{ page_obj.next_page_number }}">Next</a></li>
+              {% else %}
+                <li class="page-item disabled"><span class="page-link">Next</span></li>
+              {% endif %}
+            </ul>
+          </nav>
+        {% endif %}
+      {% else %}
+        <div class="cs-empty">
+          <span class="cs-icon-circle"><i class="bi bi-search" aria-hidden="true"></i></span>
+          {% if q %}
+            <h3 class="h6 mb-1">No doctors match "{{ q }}"</h3>
+          {% else %}
+            <h3 class="h6 mb-1">No doctors match these filters</h3>
+          {% endif %}
+          <p class="small text-body-secondary mb-3">Try a different name or symptom, or clear the filters.</p>
+          <a class="btn btn-outline-primary btn-sm" href="{% url 'doctors:doctor_list' %}">Clear filters</a>
+        </div>
+      {% endif %}
+    </section>
+  </div>
+{% endblock %}
