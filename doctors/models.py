@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Clinic(models.Model):
@@ -26,6 +27,9 @@ class Specialty(models.Model):
   def __str__(self):
     return self.name
 
+  def keyword_list(self):
+    return [word.strip() for word in self.keywords.split(',') if word.strip()]
+
 
 class Language(models.Model):
   name = models.CharField(max_length=50, unique=True)
@@ -50,6 +54,9 @@ class Doctor(models.Model):
 
   def __str__(self):
     return f'Dr. {self.name}'
+
+  def get_absolute_url(self):
+    return reverse('doctors:doctor_detail', args=[self.pk])
 
   @property
   def initials(self):

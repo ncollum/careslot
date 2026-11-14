@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}{{ doctor }}{% endblock %}
+
+{% block page_header %}
+  <header class="cs-page-header">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'core:home' %}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{% url 'doctors:doctor_list' %}">Find a doctor</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{ doctor }}</li>
+        </ol>
+      </nav>
+      <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-3 gap-md-4">
+        <span class="cs-avatar cs-avatar-xl">
+          {% if doctor.photo %}
+            <img src="{{ doctor.photo.url }}" alt="">
+          {% else %}
+            {{ doctor.initials }}
+          {% endif %}
+        </span>
+        <div class="d-flex flex-column gap-2">
+          <div>
+            <h1 class="h3 mb-1">{{ doctor }}</h1>
+            <p class="text-body-secondary mb-0">{{ doctor.specialty }} - {{ doctor.clinic }}</p>
+          </div>
+          <div class="d-flex flex-wrap gap-2 small">
+            {% for language in doctor.languages.all %}
+              <span class="badge bg-tint text-body fw-medium">{{ language }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+{% endblock %}
+
+{% block content %}
+  <div class="cs-layout-aside">
+    <div class="d-flex flex-column gap-4">
+      <section class="card" aria-labelledby="about-title">
+        <div class="card-body p-4">
+          <h2 class="h5 mb-3" id="about-title">About</h2>
+          {% if doctor.bio %}
+            <p class="mb-3">{{ doctor.bio }}</p>
+          {% endif %}
+          <h3 class="h6 mb-2">Common reasons to visit</h3>
+          <div class="d-flex flex-wrap gap-2">
+            {% for keyword in doctor.specialty.keyword_list %}
+              <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis">{{ keyword|capfirst }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="clinic-title">
+        <div class="card-body p-4">
+          <h2 class="h5 mb-3" id="clinic-title">Clinic</h2>
+          <div class="d-flex flex-column flex-md-row gap-4">
+            <div class="d-flex gap-3 flex-grow-1">
+              <span class="cs-icon-circle"><i class="bi bi-hospital" aria-hidden="true"></i></span>
+              <div>
+                <div class="fw-semibold">{{ doctor.clinic }}</div>
+                <div class="small text-body-secondary">{{ doctor.clinic.address }}</div>
+                <div class="small text-body-secondary">{{ doctor.clinic.phone }}</div>
+              </div>
+            </div>
+            <div class="small flex-shrink-0">{{ doctor.clinic.opening_hours|linebreaksbr }}</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" id="reviews" aria-labelledby="reviews-title">
+        <div class="card-body p-4">
+          <h2 class="h5 mb-3" id="reviews-title">Patient reviews</h2>
+          <p class="text-body-secondary mb-0">No reviews yet.</p>
+        </div>
+      </section>
+    </div>
+
+    <aside class="cs-sticky-lg" id="book">
+      <section class="card" aria-labelledby="book-title">
+        <div class="card-body p-4">
+          <h2 class="h5 mb-1" id="book-title">Book an appointment</h2>
+          <p class="small text-body-secondary mb-0">Online booking for this doctor opens soon.</p>
+        </div>
+      </section>
+    </aside>
+  </div>
+{% endblock %}

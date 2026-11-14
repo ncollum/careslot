@@ -231,3 +231,36 @@
   margin-bottom: 1rem;
 }
 
+
+.bg-tint {
+  background-color: var(--cs-tint) !important;
+}
+
+.cs-card-link {
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.cs-card-link:hover {
+  border-color: var(--bs-primary-border-subtle);
+  box-shadow: 0 .5rem 1.25rem rgba(15, 76, 92, .1);
+}
+
+.cs-avatar-xl {
+  width: 6rem;
+  height: 6rem;
+  font-size: 1.75rem;
+}
+
+/* Content on the left and a side column on the right. Stacks on small screens. */
+.cs-layout-aside {
+  display: grid;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (min-width: 992px) {
+  .cs-layout-aside {
+    grid-template-columns: minmax(0, 1fr) 22rem;
+    gap: 2rem;
+  }
+}

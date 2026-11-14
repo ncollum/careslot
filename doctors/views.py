@@ -1,8 +1,5 @@
-from django.shortcuts import render
-
-# Create your views here.
 from django.db.models import Q
-from django.views.generic import ListView
+from django.views.generic import DetailView, ListView
 
 from .forms import DoctorFilterForm, DoctorSearchForm
 from .models import Doctor
@@ -57,3 +54,17 @@ class DoctorListView(ListView):
     query.pop('page', None)
     context['query_string'] = query.urlencode()
     return context
+
+
+class DoctorDetailView(DetailView):
+  model = Doctor
+
+  def get_queryset(self):
+    return Doctor.objects.select_related('specialty', 'clinic').prefetch_related('languages')
+
+  def get(self, request, *args, **kwargs):
+    response = super().get(request, *args, **kwargs)
+    # Newest first, no repeats, at most 5
+    recent = [pk for pk in request.session.get('recent_doctors', []) if pk != self.object.pk]
+    request.session['recent_doctors'] = [self.object.pk] + recent[:4]
+    return response
