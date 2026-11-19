@@ -1,6 +1,7 @@
 # CareSlot
 
-CareSlot is a clinic appointment booking site. Patients can find a doctor, see open time slots and book a visit online. It is our group project for COMP-8347 Internet Applications and Distributed Systems at the University of Windsor (Fall 2026).
+CareSlot is a clinic appointment booking site. Patients can find a doctor, see open time slots and book a visit online. It is our group project for COMP 8347 at the University of Windsor. 
+> My contributions: the doctors module, including doctor data models, fixtures, and the list, search, and detail pages.
 
 ## Running it on your computer
 
